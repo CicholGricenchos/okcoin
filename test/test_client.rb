@@ -17,7 +17,7 @@ class TestClient < Minitest::Test
 
     thread = future_client.listen_thread
 
-    sleep 0.5 until thread.stop?
+    sleep 0.1 while thread.alive?
     assert thread[:data].is_a?(Hash)
     assert thread[:data].has_key?("data")
   end
@@ -32,7 +32,7 @@ class TestClient < Minitest::Test
 
     thread = spot_client.listen_thread
 
-    sleep 0.5 until thread.stop?
+    sleep 0.1 while thread.alive?
     assert thread[:data].is_a?(Hash)
     assert thread[:data].has_key?("data")
   end

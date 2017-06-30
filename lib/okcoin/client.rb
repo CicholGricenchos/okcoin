@@ -13,9 +13,9 @@ class OKCoin::Client
 
   def connect
     uri = URI.parse @url
-    raw_socket = Celluloid::IO::TCPSocket.new(uri.host, uri.port)
+    raw_socket = TCPSocket.new(uri.host, uri.port)
     context = OpenSSL::SSL::SSLContext.new(:TLSv1_2)
-    @socket = Celluloid::IO::SSLSocket.new(raw_socket, context)
+    @socket = OpenSSL::SSL::SSLSocket.new(raw_socket, context)
     @socket.connect
 
     @handshake = WebSocket::Handshake::Client.new url: @url

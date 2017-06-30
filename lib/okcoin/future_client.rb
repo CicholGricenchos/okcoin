@@ -16,4 +16,5 @@ class OKCoin::FutureClient < OKCoin::Client
       yield data
     end
   end
+
 end

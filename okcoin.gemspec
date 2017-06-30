@@ -10,5 +10,5 @@ Gem::Specification.new do |spec|
   spec.files         = Dir.glob("lib/**/*.rb")
 
   spec.add_dependency 'websocket'
-  spec.add_dependency 'celluloid/io'
+  #spec.add_dependency 'celluloid-io'
 end
